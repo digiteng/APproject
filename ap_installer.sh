@@ -7,7 +7,7 @@ echo -e "\e[32mOld Version Deleting...\e[0m"
 # rm -rf /tmp/ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
-wget "github.com/digiteng/APproject/releases/latest/download/ap.tar.gz" -P /tmp
+wget github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /tmp
 echo -e "\e[32mNew Version Downloaded\e[0m"
 sleep 1
 echo -e "\e[32mNew Version Installing...\e[0m"
