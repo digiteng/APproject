@@ -3,14 +3,13 @@
 echo ""
 sleep 1
 wget github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /tmp
-echo -e "\e[32mNew Version Downloaded\e[0m"
+echo ""
 sleep 1
 if [ -f /tmp/ap.tar.gz ]; then
 	echo -e "\e[32mNew Version Installing...\e[0m"
 	openssl enc -d -aes256 -in /tmp/ap.tar.gz | tar xz -C /
 fi
-
-
-fi
+echo ""
 sleep 2
+echo "end"
 exit 0
