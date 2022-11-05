@@ -2,7 +2,7 @@
 # wget -q "--no-check-certificate" https://github.com/digiteng/APproject/raw/master/ap_installer.sh -O - | /bin/sh
 echo ""
 sleep 1
--e "\e[32mOld Version Deleting...\e[0m"
+echo -e "\e[32mOld Version Deleting...\e[0m"
 # rm -rf /usr/lib/enigma2/python/Plugins/Extensions/ap
 # rm -rf /tmp/ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
