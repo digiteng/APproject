@@ -4,15 +4,15 @@ echo ""
 sleep 1
 echo -e "\e[32mOld Version Deleting...\e[0m"
 rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
-rm -rf /tmp/audioplus.tar.gz
+rm -rf /tmp/ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
-wget -q github.com/digiteng/APproject/releases/latest/download/audioplus.tar.gz -P /tmp
+wget -q github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /tmp
 echo -e "\e[32mNew Version Downloaded\e[0m"
 sleep 1
 echo -e "\e[32mNew Version Installing...\e[0m"
-if [ -f /tmp/audioplus.tar.gz ]; then
-	openssl enc -d -aes256 -in /tmp/audioplus.tar.gz | tar xz -C /
+if [ -f /tmp/ap.tar.gz ]; then
+	openssl enc -d -aes256 -in /tmp/ap.tar.gz | tar xz -C /
 fi
 sleep 2
 if [ -f /var/lib/dpkg ]; then
@@ -81,7 +81,7 @@ fi
 sleep 3
 if [ -d /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus ]; then
 	echo -e "\e[32mNew Version Installed\e[0m"
-	rm -rf /tmp/audioplus.tar.gz
+	rm -rf /tmp/ap.tar.gz
 	sleep 2
 	echo -e "\e[32mRestarting Enigma2 Gui...\e[0m"
 	if [ $OS = "Dream" ]; then
