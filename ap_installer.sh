@@ -84,12 +84,12 @@ if [ -d /ap ]; then
 	echo -e "\e[32mNew Version Installed\e[0m"
 	rm -rf /tmp/ap.tar.gz
 	sleep 2
-	echo -e "\e[32mRestarting Enigma2 Gui...\e[0m"
-	if [ $OS = "Dream" ]; then
-		systemctl restart enigma2
-	else
-		killall -9 enigma2
-	fi
+	#echo -e "\e[32mRestarting Enigma2 Gui...\e[0m"
+	#if [ $OS = "Dream" ]; then
+	#	systemctl restart enigma2
+	#else
+	#	killall -9 enigma2
+	#fi
 else
 	echo -e "\e[31mNew Version Failed To Load\e[0m"
 fi
