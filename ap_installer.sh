@@ -16,7 +16,7 @@ if [ -f /tmp/ap.tar.gz ]; then
 	openssl enc -d -aes256 -in /tmp/ap.tar.gz | tar xz -C /tmp
 fi
 sleep 3
-if [ -d /tmp/ap ]; then
+if [ -d /tmp/tmp/ap ]; then
 	mv -v /tmp/tmp/ap/asound.conf /etc
 	mv -v /tmp/tmp/ap/AudioPlus /usr/lib/enigma2/python/Plugins/Extensions/
 fi
@@ -91,7 +91,7 @@ if [ -d /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus ]; then
 	rm -rf /tmp/ap.tar.gz
 	rm -rf /tmp/tmp
 	sleep 2
-	echo -e "\e[32mRestarting Enigma2 Gui...\e[0m"
+	echo -e "\e[1;33mRestarting Enigma2 Gui...\e[0m"
 	if [ $OS = "Dream" ]; then
 		systemctl restart enigma2
 	else
