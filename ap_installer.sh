@@ -3,7 +3,7 @@
 echo ""
 sleep 1
 echo -e "\e[32mOld Version Deleting...\e[0m"
-rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
+#rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
 rm -rf /tmp/ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
@@ -79,7 +79,8 @@ else
 	fi
 fi
 sleep 3
-if [ -d /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus ]; then
+#if [ -d /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus ]; then
+if [ -d /ap ]; then
 	echo -e "\e[32mNew Version Installed\e[0m"
 	rm -rf /tmp/ap.tar.gz
 	sleep 2
