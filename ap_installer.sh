@@ -7,13 +7,13 @@ rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
 rm -rf /ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
-wget -q github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /
+wget -q github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /tmp
 sleep 5
 echo -e "\e[32mNew Version Downloaded\e[0m"
 sleep 1
 echo -e "\e[32mNew Version Installing...\e[0m"
 if [ -f /ap.tar.gz ]; then
-	openssl enc -d -aes256 -in /ap.tar.gz | tar xz -C /tmp
+	openssl enc -d -aes256 -in /tmp/ap.tar.gz | tar xz -C /tmp
 fi
 sleep 3
 if [ -d /ap ]; then
@@ -89,7 +89,7 @@ if [ -f /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus/plugin.py ]; then
 		fi
 	fi
 	sleep 3
-	rm -rf /ap.tar.gz
+	rm -rf /tmp/ap.tar.gz
 	rm -rf /tmp/ap
 	sleep 2
 	echo -e "\e[1;33mRestarting Enigma2 Gui...\e[0m"
