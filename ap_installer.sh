@@ -7,15 +7,20 @@ rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
 rm -rf /tmp/ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
-wget -q github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /tmp
+wget -q github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /
 sleep 5
 echo -e "\e[32mNew Version Downloaded\e[0m"
 sleep 1
 echo -e "\e[32mNew Version Installing...\e[0m"
-if [ -f /tmp/ap.tar.gz ]; then
-	openssl enc -d -aes256 -in /tmp/ap.tar.gz | tar xz -C /
+if [ -f /ap.tar.gz ]; then
+	openssl enc -d -aes256 -in /tmp/ap.tar.gz | tar xz -C /tmp
+	if [ -d /tmp/ap ]; then
+		mv -v /tmp/tmp/ap/asound.conf /etc
+		mv -v /tmp/tmp/ap/AudioPlus /usr/lib/enigma2/python/Plugins/Extensions/
+	fi
 fi
-sleep 2
+sleep 5
+echo -e "\e[32mNew Version Installed...\e[0m"
 if [ -f /var/lib/dpkg ]; then
 	OS='Dream'
 	ipath="/var/lib/dpkg/status"
