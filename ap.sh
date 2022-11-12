@@ -1,5 +1,5 @@
 #!/bin/sh
-# wget -q "--no-check-certificate" https://github.com/digiteng/APproject/raw/main/ap_installer.sh -O - | /bin/sh
+# wget -q "--no-check-certificate" https://github.com/digiteng/APproject/raw/main/ap.sh -O - | /bin/sh
 echo ""
 rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
 rm -rf /tmp/ap.tar.gz
