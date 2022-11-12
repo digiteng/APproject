@@ -81,7 +81,7 @@ sleep 3
 cd ..
 if [ -f /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus/plugin.py ]; then
 	echo -e "\e[32mNew Version Installed\e[0m"
-	rm -rf ap.tar.gz
+	rm -rf /tmp/ap.tar.gz
 	sleep 2
 	echo -e "\e[1;33mRestarting Enigma2 Gui...\e[0m"
 	if [ $OS = "Dream" ]; then
