@@ -23,7 +23,7 @@ else
 fi
 echo""
 if [ $OS = "Dream" ]; then
-	echo -e "\e[32mUpdating Feed...\e[0m"
+	echo -e "\e[32mUpdating...\e[0m"
 	apt-get update
 	if grep 'gstreamer1.0-plugins-base-volume' $ipath; then
 		echo ""
@@ -50,7 +50,7 @@ if [ $OS = "Dream" ]; then
 		apt-get install gstreamer1.0-plugins-good-equalizer -y;
 	fi		
 else
-	echo -e "\e[32mUpdating Feed...\e[0m"
+	echo -e "\e[32mUpdating...\e[0m"
 	opkg update
 	if grep 'gstreamer1.0-plugins-base-volume' $ipath; then
 		echo ""
@@ -92,4 +92,3 @@ else
 	echo -e "\e[31mNew Version Failed To Load\e[0m"
 fi
 exit 0
-
