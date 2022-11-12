@@ -8,7 +8,7 @@ echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
 wget -q "github.com/digiteng/APproject/releases/latest/download/ap.tar.gz" -P /tmp
 echo -e "\e[32mNew Version Downloaded\e[0m"
-sleep 1
+sleep 5
 tar -xzf /tmp/ap.tar.gz -C /tmp
 mv -v /tmp/asound.conf /etc
 mv -v /tmp/AudioPlus /usr/lib/enigma2/python/Plugins/Extensions/
