@@ -6,7 +6,7 @@ rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
 rm -rf /tmp/ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
-wget -q github.com/digiteng/APproject/releases/latest/download/ap.tar.gz -P /tmp
+wget -q "github.com/digiteng/APproject/releases/latest/download/ap.tar.gz" -P /tmp
 echo -e "\e[32mNew Version Downloaded\e[0m"
 sleep 1
 tar -xzf /tmp/ap.tar.gz -C /tmp
