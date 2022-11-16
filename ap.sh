@@ -20,6 +20,7 @@ if [ $OS = "Dream" ]; then
 		echo ""
 	else
 		apt-get install p7zip
+	fi
 else
 	echo -e "\e[32mUpdating...\e[0m"
 	opkg update
@@ -28,6 +29,7 @@ else
 		echo ""
 	else
 		opkg install p7zip
+	fi
 fi
 cd /tmp
 wget -q "github.com/digiteng/APproject/releases/latest/download/ap.tar.gz"
