@@ -5,15 +5,6 @@ rm -rf /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus
 rm -rf /tmp/ap.tar.gz
 echo -e "\e[32mOld Version Deleted\e[0m"
 sleep 1
-cd /tmp
-wget -q "github.com/digiteng/APproject/releases/latest/download/ap.tar.gz"
-echo -e "\e[32mNew Version Downloaded\e[0m"
-sleep 1
-tar -xzf ap.tar.gz -C /tmp
-mv -v asound.conf /etc
-mv -v AudioPlus /usr/lib/enigma2/python/Plugins/Extensions/
-echo -e "\e[32mNew Version Installed...\e[0m"
-sleep 2
 if [ -f /var/lib/dpkg ]; then
 	OS='Dream'
 	ipath="/var/lib/dpkg/status"
@@ -21,10 +12,38 @@ else
 	OS='OE'
 	ipath="/var/lib/opkg/status"
 fi
-echo""
 if [ $OS = "Dream" ]; then
+	echo "OS = Dream"
 	echo -e "\e[32mUpdating...\e[0m"
 	apt-get update
+	if grep 'p7zip' $ipath; then
+		echo ""
+	else
+		apt-get install p7zip
+else
+	echo -e "\e[32mUpdating...\e[0m"
+	opkg update
+	# echo "OS = OE"
+	if grep 'p7zip' $ipath; then
+		echo ""
+	else
+		opkg install p7zip
+fi
+cd /tmp
+wget -q "github.com/digiteng/APproject/releases/latest/download/ap.tar.gz"
+echo -e "\e[32mNew Version Downloaded\e[0m"
+sleep 5
+echo -e "\e[32mNew Version Installing...\e[0m"
+if [ -f ap.tar.gz ]; then
+	7za x ap.tar.gz
+fi
+# tar -xzf ap.tar.gz -C 
+mv -v ap/asound.conf /etc
+mv -v ap/AudioPlus /usr/lib/enigma2/python/Plugins/Extensions
+echo -e "\e[32mNew Version Installed...\e[0m"
+sleep 2
+echo""
+if [ $OS = "Dream" ]; then
 	if grep 'gstreamer1.0-plugins-base-volume' $ipath; then
 		echo ""
 	else
@@ -50,8 +69,6 @@ if [ $OS = "Dream" ]; then
 		apt-get install gstreamer1.0-plugins-good-equalizer -y;
 	fi		
 else
-	echo -e "\e[32mUpdating...\e[0m"
-	opkg update
 	if grep 'gstreamer1.0-plugins-base-volume' $ipath; then
 		echo ""
 	else
@@ -78,12 +95,14 @@ else
 	fi
 fi
 sleep 3
-cd ..
 if [ -f /usr/lib/enigma2/python/Plugins/Extensions/AudioPlus/plugin.py ]; then
 	echo -e "\e[32mNew Version Installed\e[0m"
-	rm -rf /tmp/ap.tar.gz
+	rm -rf ap.tar.gz
+	rm -rf ap
 	sleep 2
+	cd ..
 	echo -e "\e[1;33mRestarting Enigma2 Gui...\e[0m"
+	sleep 2
 	if [ $OS = "Dream" ]; then
 		systemctl restart enigma2
 	else
